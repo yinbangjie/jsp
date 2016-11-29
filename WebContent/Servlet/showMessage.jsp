@@ -11,7 +11,7 @@
 </head>
 <body>
 		<%
-			ArrayList wordlist = (ArrayList) session.getAttribute("wordlist");
+			ArrayList wordlist = (ArrayList)request.getAttribute("wordlist");
 			if(wordlist == null||wordlist.size()==0)
 				out.print("没有留言可显示！");
 				else{

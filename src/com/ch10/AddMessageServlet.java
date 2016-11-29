@@ -40,14 +40,17 @@ public class AddMessageServlet extends HttpServlet {
 		mm.setContent(content);
 		mm.setTime(today);
 		
-		HttpSession session = request.getSession();
-		ServletContext scx = session.getServletContext();
+//		HttpSession session = request.getSession();
+//		ServletContext scx = session.getServletContext();
 		ArrayList wordlist = (ArrayList)session.getAttribute("wordlist");
 		if(wordlist==null){
 			wordlist=new ArrayList();
 		}
 		wordlist.add(mm);
 		request.setAttribute("wordlist", wordlist);
+
+                RequestDispatcher dispatcher = request.getRequestDispatcher("showMessage.jsp");
+		dispatcher.forward(request, response);
 		response.sendRedirect("showMessage.jsp");
 		
 	}
